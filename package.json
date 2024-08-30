@@ -1,0 +1,23 @@
+{
+  "name": "@digital_ecommerce_package",
+  "version": "1.0.0",
+  "description": "basic packages   for digital ecommerce application",
+  "main": "./bin/digitalEcommerce",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huskywannafly0123/digital_ecommerce_package.git"
+  },
+  "keywords": [
+    "digital",
+    "ecommerce"
+  ],
+  "author": "huskywannafly0123",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huskywannafly0123/digital_ecommerce_package/issues"
+  },
+  "homepage": "https://github.com/huskywannafly0123/digital_ecommerce_package#readme"
+}
