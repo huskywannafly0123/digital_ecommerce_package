@@ -1,4 +1,6 @@
 const { toString } = require('./toString')
+const uniqid = require('uniqid');
+
 class Query {
     constructor() {
         this._binding = []
@@ -60,7 +62,7 @@ class InsertOnUpdateQuery extends Query {
             throw Error('You need provide data first');
         }
 
-        let rows = await connection.query({
+        let { rows } = await connection.query({
             text: `SELECT 
             table_name, 
             column_name, 
@@ -133,4 +135,41 @@ function release(connection) {
         return
     }
     connection.release()
+}
+
+function insertOnUpdate(tableName, conflictColumns){
+    if(!Array.isArray(conflictColumns) || conflictColumns.length === 0){
+        throw new Error('Conflict columns must be an array')
+    }
+    return new InsertOnUpdateQuery(tableName, conflictColumns)
+}
+
+async function execute(connection, query){
+    return await connection.query(query)
+}
+
+async function startTransaction(connection){
+    await connection.query('BEGIN')
+    connection.INTRANSACTION = true
+    connection.COMMITTED = false
+}
+
+async function commit(connection){
+    await connection.query('COMMIT')
+    connection.INTRANSACTION = false
+    connection.COMMITTED = true
+}
+
+async function rollback(connection){
+    await connection.query('ROLLBACK')
+    connection.INTRANSACTION = false
+    connection.release()
+}
+
+module.exports = { 
+    insertOnUpdate,
+    execute,
+    commit,
+    rollback,
+    startTransaction
 }

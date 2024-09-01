@@ -1,0 +1,14 @@
+{
+  "name": "postgres-query-builder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "huskywannafly0123",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "uniqid": "^5.3.0"
+  }
+}

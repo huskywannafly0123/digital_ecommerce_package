@@ -16,4 +16,4 @@ class CustomColorize extends colorize.Colorizer {
     }
 }
 
-module.exports = (opts) => CustomColorize(opts);
+module.exports = (opts) => new CustomColorize(opts);

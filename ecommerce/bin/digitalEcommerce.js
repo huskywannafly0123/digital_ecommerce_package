@@ -7,6 +7,8 @@ const command = argv._[0];
 try {
     if(command === 'user:create') {
         require('./user/create');
+    } else if(command === 'install') {
+        require('./install');
     } else {
         throw new Error('Invalid command');
     }

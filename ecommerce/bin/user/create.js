@@ -1,10 +1,10 @@
 const yargs = require("yargs");
-const { insertOnUpdate } = require('@digital_ecommerce_package/postgres-query-builder');
-const { error, success } = require('@digital_ecommerce_package/src/lib/log/logger');
+const { insertOnUpdate } = require('../../../postgres-query-builder');
+const { error, success } = require('../../src/lib/log/logger');
 const {
     hashPassword
-  } = require('@digital_ecommerce_package/src/lib/util/passwordHelper');
-const { pool } = require('@digital_ecommerce_package/src/lib/postgres/connection');
+  } = require('../../src/lib/util/passwordHelper');
+const { pool } = require('../../src/lib/postgres/connection');
 
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
