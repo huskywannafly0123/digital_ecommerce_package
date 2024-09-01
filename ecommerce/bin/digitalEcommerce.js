@@ -9,6 +9,9 @@ try {
         require('./user/create');
     } else if(command === 'install') {
         require('./install');
+    } else if(command === 'dev'){
+        process.env.NODE_ENV = 'development';
+        require('./dev');
     } else {
         throw new Error('Invalid command');
     }
