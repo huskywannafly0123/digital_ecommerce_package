@@ -1,5 +1,34 @@
 const { toString } = require('./toString')
 const uniqid = require('uniqid');
+const { isValueASQL } = require('./isValueASQL');
+
+
+class Select {
+    constructor() {
+        this._fields = [];
+    }
+
+    select(field, alias) {
+        let f = ''
+        if (isValueASQL(field) || field === '*') {
+            // If field is an object has property "isSQL" and it's true
+            // or field is a string and it's "*"
+            if (typeof field === 'object' && field.isSQL === true) {
+                f = field.value;
+            } else {
+                f = field;
+            }
+        } else {
+            f += `"${field}"`;
+        }
+        if (alias) {
+            f += ` AS "${alias}"`;
+        }
+      
+        this._fields.push(f);
+        return this;
+    }
+}
 
 class Query {
     constructor() {

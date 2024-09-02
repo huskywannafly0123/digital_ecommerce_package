@@ -36,6 +36,10 @@
     "enquirer": "^2.3.6",
     "pg": "^8.11.3",
     "bcryptjs": "^2.4.3",
-    "ora": "^5.4.1"
+    "ora": "^5.4.1",
+    "csv-parser": "^3.0.0",
+    "immer": "^9.0.3",
+    "@ckeditor/ckeditor5-build-classic": "^36.0.1",
+    "@ckeditor/ckeditor5-react": "^5.1.0"
   }
 }
